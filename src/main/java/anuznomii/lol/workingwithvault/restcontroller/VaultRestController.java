@@ -9,6 +9,7 @@ import org.springframework.vault.support.VaultResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +73,33 @@ return  "hello world ";
 
 
         return " this is the token endpoint!";
+    }
+
+
+    @GetMapping("/creating-token")
+    public String createToken(){
+
+
+
+
+        Map<String , Object > params = new HashMap<>();
+        params.put("policies", "default");
+        params.put("ttl", "1h");
+        params.put("client-token", "my-wonderful-token");
+
+
+        VaultResponse response
+                = vaultTemplate.write("auth/token/create",
+                params) ;
+
+//        print the response
+        System.out.println("response is: "+response.getAuth());
+/*
+*  client_token , accessor , policies , token_policies , metadata , lease_duration , renewable
+* */
+        System.out.println("response is: "+response.getAuth().get("client_token"));
+        System.out.println("response is: "+response.getData());
+        return "this is the create token endpoint";
     }
 
 }
