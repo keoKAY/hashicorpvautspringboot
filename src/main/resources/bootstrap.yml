@@ -1,0 +1,9 @@
+#spring:
+#  application:
+#    name: working-with-vault
+#  cloud:
+#    vault:
+#      host: localhost
+#      port: 8200
+#      scheme: http
+#      token: s.wO85qvAKuzL4QQifLE9N5aiq
