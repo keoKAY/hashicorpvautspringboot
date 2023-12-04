@@ -2,9 +2,6 @@ package anuznomii.lol.workingwithvault.restcontroller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.mail.MailProperties;
-import org.springframework.vault.authentication.TokenAuthentication;
-import org.springframework.vault.client.VaultEndpoint;
 import org.springframework.vault.core.VaultKeyValueOperations;
 import org.springframework.vault.core.VaultKeyValueOperationsSupport;
 import org.springframework.vault.core.VaultTemplate;
@@ -17,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class EmployeeController {
+public class VaultRestController {
 
     @Autowired
     private VaultTemplate vaultTemplate;
